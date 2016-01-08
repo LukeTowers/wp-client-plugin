@@ -1,0 +1,103 @@
+.options_page_title {
+	float: none !important;
+}
+
+.options_page_save_btn1,
+.options_page_save_btn2 {
+	margin: 0px 0px 7px 0px;
+}
+
+.options_page_save_btn1 {
+	margin: 9px 0px 4px 0px;
+}
+
+.panel_menu ul {
+	margin: 0;
+	border-bottom: 1px solid #ccc;
+}
+
+.panel_menu ul li {
+	display: inline-block;
+	margin: 0;
+}
+
+.panel_menu .nav_tab_link {
+	color: inherit;
+	display: block;
+	background-color: #e4e4e4;
+	text-decoration: none;
+	font-size: 1.1em;
+	padding: 11px;
+	margin: 0px 7px -1px 0px;
+	border: 1px solid #ccc;
+	border-bottom: none;
+	border-radius: 2px 2px 0px 0px;
+}
+
+.panel_menu .active_tab .nav_tab_link,
+.panel_menu .nav_tab_link:hover {
+	background-color: #f1f1f1;
+}
+
+.panel_menu .nav_tab_link:focus {
+	outline: none;
+	box-shadow: none;
+	font-weight: bold;
+}
+
+.admin_page_class #tabs .field {
+	padding-bottom: 1.33em;
+}
+
+.admin_page_class #tabs .field .at-label {
+	font-weight: bold;
+	margin: 10px 0px;
+}
+
+.admin_page_class #tabs .field .desc-field {
+	padding: 7px;
+	font-size: 0.9em;
+	background-color: #e4e4e4;
+	border-radius: 7px;
+	margin-bottom: 10px;
+	color: #666;
+}
+
+.admin_page_class .update-status .alert {
+	padding: 7px;
+	border-radius: 7px;
+	background-color: #fff;
+	margin-bottom: 10px;
+}
+
+.admin_page_class .update-status .alert-success {
+	border-left: 7px solid #7ad03a;
+}
+
+.admin_page_class .update-status .alert-danger {
+	border-left: 7px solid #dd3d36;
+}
+
+.admin_page_class .update-status .alert-error {
+	border-left: 7px solid #ffba00;
+}
+
+.admin_page_class .update-status .alert .close {
+	border: none;
+	background: none;
+	margin-right: 5px;
+}
+
+.admin_page_class .update-status .alert .close:hover {
+	background-color: #ccc;
+	border-radius: 5px;
+}
+
+.mupload_img_holder {
+	margin-bottom: 6px;
+	display: block;
+}
+
+.mupload_img_holder img {
+	max-width: 100%;
+}
