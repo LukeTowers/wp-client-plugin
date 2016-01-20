@@ -63,7 +63,7 @@ require_once(LAI_PLUGIN_PATH . 'includes/modules/settings-manager/settings-pages
 
 //************************************************************************************************
 // Section: 	 	Base Settings
-// Description:		Component that creates the basic settings for this Cadet site
+// Description:		Component that creates the basic settings for this site
 //************************************************************************************************
 
 require_once(LAI_PLUGIN_PATH . 'includes/modules/settings-manager/base-settings.php');

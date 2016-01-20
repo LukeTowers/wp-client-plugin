@@ -11,7 +11,7 @@ function look_remove_metaboxes() {
 	// Get the base metaboxes to be removed
 	$default_metaboxes = get_base_metaboxes_to_remove();
 	
-	// Modify the metaboxes as requested by Cadet Platform Add-ons
+	// Modify the metaboxes as requested by Look Agency add-ons
 	$metaboxes = apply_filters('look-remove-metaboxes', $default_metaboxes);
 	
 	if (!empty($metaboxes)) {

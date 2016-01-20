@@ -46,7 +46,7 @@ require_once(LAI_PLUGIN_PATH . 'includes/modules/settings-manager/settings-manag
 
 //************************************************************************************************
 // Section: 		User Interface Manager Module
-// Description:		Module that manages the general interface for cadet sites
+// Description:		Module that manages the general interface for sites
 //************************************************************************************************
 
 require_once(LAI_PLUGIN_PATH . 'includes/modules/interface-manager/interface-manager.php');

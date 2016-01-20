@@ -1,15 +1,15 @@
 <?php
 //************************************************************************************************
 // Section: 		Settings Manager Module - Base Settings
-// Description:		Component that creates the basic settings for this cadet site
+// Description:		Component that creates the basic settings for this site
 //************************************************************************************************
 
 function get_base_site_settings_pages() {
 	$options_layout = array(
 		'look-agency-settings' => array(
 			'config' => array(
-				'menu'				=> array('top' => 'look-agency-settings'),	// Top level settings page in admin sidebar
-				'page_title'		=> 'Site Settings',					// Title of the settings page 
+				'menu'				=> 'options-general.php',			// Top level settings page in admin sidebar
+				'page_title'		=> 'Look Settings',					// Title of the settings page 
 				'capability'		=> 'remove_users',					// The capability needed to view the page 
 				'option_group'		=> 'look-agency-settings',			// Name of the option created in the database, access with get_option('saskbrokers_site_options');
 				'id'				=> 'look-agency-settings',			// meta box id, unique per page, used to access page through /wp-admin/admin.php?page=page_id

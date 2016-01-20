@@ -1,7 +1,7 @@
 <?php
 //************************************************************************************************
 // Section: 		User Interface Manager Module
-// Description:		Module that manages the general interface for cadet sites
+// Description:		Module that manages the general interface for sites
 //************************************************************************************************
 
 

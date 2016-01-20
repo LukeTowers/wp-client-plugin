@@ -10,7 +10,7 @@
  * a class for creating custom meta boxes for WordPress. 
  * 
  *  
- * @version 1.3.2 - Modified by Luke Towers for the Cadet Platform
+ * @version 1.3.2 - Modified by Luke Towers for Look Agency
  * @copyright 2012 - 2015
  * @author Ohad Raz (email: admin@bainternet.info)
  * @link http://en.bainternet.info
