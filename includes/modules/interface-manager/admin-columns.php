@@ -19,11 +19,6 @@ function get_base_columns_to_remove() {
 		'media'	=>	array(
 			'comments',
 		),
-		'edit-event'	=>	array(
-			'author',
-			'eventcategories',
-			'comments',
-		),
 	);
 	
 	return $columns;
@@ -50,8 +45,20 @@ function look_remove_columns() {
 					return $columns;'
 				);
 				
+				add_filter("manage_{$posttype}_posts_columns", $function_name, 9999);
 				add_filter("manage_{$posttype}_columns", $function_name, 9999);
 			} else {
+				add_filter(
+					"manage_{$posttype}_posts_columns", 
+					function($columns) use ($columns_to_remove) {						
+						foreach ($columns_to_remove as $column) { 
+							unset($columns[$column]);
+						}
+						
+						return $columns;
+					}
+				);
+				
 				add_filter(
 					"manage_{$posttype}_columns", 
 					function($columns) use ($columns_to_remove) {						
@@ -92,10 +99,10 @@ function look_add_columns() {
 					return $columns;'
 				);
 				
-				add_filter("manage_{$posttype}_columns", $function_name, 9999);
+				add_filter("manage_{$posttype}_posts_columns", $function_name, 9999);
 			} else {
 				add_filter(
-					"manage_{$posttype}_columns", 
+					"manage_{$posttype}_posts_columns", 
 					function($columns) use ($columns_to_add) {						
 						foreach ($columns_to_add as $id => $column) {
 							$columns[$id] = $column['title'];
@@ -108,8 +115,9 @@ function look_add_columns() {
 			
 			// Setup callbacks to displaying content of columns
 			foreach ($columns_to_add as $column_id => $column_info) {
+				
 				if (!empty($column_info['callback'])) {
-					add_action("manage_{$posttype}_custom_column", $column_info['callback'], 9999, 2);
+					add_action("manage_{$posttype}_posts_custom_column", $column_info['callback'], 9999, 2);
 				}
 			}
 		}

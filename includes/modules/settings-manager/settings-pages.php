@@ -34,7 +34,7 @@ function render_site_settings_pages($pages_config) {
 		
 		// Create the page with the specified configuration options
 		$settings_pages[$page_id] = new BF_Admin_Page_Class($prepared_config);
-		
+				
 		// Create tabs if they were specified - TODO: Check if array, not just !empty?
 		if (!empty($page_config['tabs'])) {
 			

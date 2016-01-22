@@ -17,6 +17,7 @@ function look_remove_admin_menus() {
 add_action('admin_menu', 'look_remove_admin_menus');
 
 
+
 // Remove the WordPress logo button and comments from the admin bar
 function remove_wp_logo($wp_admin_bar) {
 	$wp_admin_bar->remove_node('wp-logo');
