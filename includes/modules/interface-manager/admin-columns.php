@@ -8,8 +8,8 @@
 function get_base_columns_to_remove() {
 	$columns = array(
 		'edit-post'	=>	array(
-			'comments',
-			'tags',
+			!current_theme_supports('post-comments') ? 'comments' : '',
+			!current_theme_supports('post-tags') ? 'tags' : '',
 			'qppr_redirect',
 		),
 		'edit-page'	=>	array(

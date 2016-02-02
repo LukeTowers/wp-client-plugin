@@ -9,6 +9,18 @@
 //	- updating of the permission slip post. Look into these when possible.
 //************************************************************************************************
 
+function site_setting($setting_id = '') {
+	if (!empty($setting_id)) {
+		$site_settings = get_option('look-agency-settings');
+		if (!empty($site_settings[$setting_id])) {
+			return $site_settings[$setting_id];
+		} 
+	}
+	// Default to returning false
+	return false;
+}
+
+
 function look_get_site_settings() {
 	// Load the settings from the database
 	$site_settings = get_option('look-agency-settings');
