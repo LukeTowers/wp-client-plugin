@@ -50,3 +50,12 @@ require_once(LAI_PLUGIN_PATH . 'includes/modules/settings-manager/settings-manag
 //************************************************************************************************
 
 require_once(LAI_PLUGIN_PATH . 'includes/modules/interface-manager/interface-manager.php');
+
+
+
+//************************************************************************************************
+// Section: 		User Interface Manager Module
+// Description:		Module that manages the general interface for sites
+//************************************************************************************************
+
+require_once(LAI_PLUGIN_PATH . 'includes/modules/helper-functions.php');
