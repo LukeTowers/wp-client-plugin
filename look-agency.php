@@ -54,8 +54,17 @@ require_once(LAI_PLUGIN_PATH . 'includes/modules/interface-manager/interface-man
 
 
 //************************************************************************************************
-// Section: 		User Interface Manager Module
-// Description:		Module that manages the general interface for sites
+// Section: 		SEO Manager Module
+// Description:		Module that manages the SEO functions of this plugin
+//************************************************************************************************
+
+require_once(LAI_PLUGIN_PATH . 'includes/modules/seo-manager/seo-manager.php');
+
+
+
+//************************************************************************************************
+// Section: 		Helper Functions Module
+// Description:		Module that manages the helper functions for this plugin
 //************************************************************************************************
 
 require_once(LAI_PLUGIN_PATH . 'includes/modules/helper-functions.php');

@@ -4,6 +4,7 @@
 // Description:		Component that creates the basic settings for this site
 //************************************************************************************************
 
+// TODO: Register settings based on theme support for them
 function get_base_site_settings_pages() {
 	$options_layout = array(
 		'look-agency-settings' => array(
@@ -26,9 +27,91 @@ function get_base_site_settings_pages() {
 					'link_text'		=>	'General',					// Tab button text
 					'title'			=>	'',									// Can be blank for no header or contains the title shown at the top of the tab page (below the tab selector)
 					'fields'		=>	array(
+						'gtag-manager-id' => array(
+							'type'		=>	'text',							// Possible values are text, textarea, TODO ADD MORE
+							'name'		=>	'Google Tag Manager ID',		// Title of option
+							'std'		=>	'',								// Placeholder content of option
+							'desc'		=>	'',								// Description of option
+							'style'		=>	'',								// Inline Styles
+						),
 						'ga-property-id' => array(
 							'type'		=>	'text',							// Possible values are text, textarea, TODO ADD MORE
 							'name'		=>	'Google Analytics Property ID',	// Title of option
+							'std'		=>	'',								// Placeholder content of option
+							'desc'		=>	'',								// Description of option
+							'style'		=>	'',								// Inline Styles
+						),
+						'gmaps-api-key' => array(
+							'type'		=>	'text',							// Possible values are text, textarea, TODO ADD MORE
+							'name'		=>	'Google Maps API Key',			// Title of option
+							'std'		=>	'',								// Placeholder content of option
+							'desc'		=>	'',								// Description of option
+							'style'		=>	'',								// Inline Styles
+						),
+					),
+				),
+				'contact'	=>	array(
+					'link_text'		=>	'Contact',					// Tab button text
+					'title'			=>	'',									// Can be blank for no header or contains the title shown at the top of the tab page (below the tab selector)
+					'fields'		=>	array(
+						'contact_address' => array(
+							'type'		=>	'text',							// Possible values are text, textarea, TODO ADD MORE
+							'name'		=>	'Address',						// Title of option
+							'std'		=>	'',								// Placeholder content of option
+							'desc'		=>	'',								// Description of option
+							'style'		=>	'',								// Inline Styles
+						),
+						'contact_phone' => array(
+							'type'		=>	'text',							// Possible values are text, textarea, TODO ADD MORE
+							'name'		=>	'Phone',						// Title of option
+							'std'		=>	'',								// Placeholder content of option
+							'desc'		=>	'',								// Description of option
+							'style'		=>	'',								// Inline Styles
+						),
+						'contact_email' => array(
+							'type'		=>	'text',							// Possible values are text, textarea, TODO ADD MORE
+							'name'		=>	'Email',						// Title of option
+							'std'		=>	'',								// Placeholder content of option
+							'desc'		=>	'',								// Description of option
+							'style'		=>	'',								// Inline Styles
+						),
+					),
+				),
+				'social'	=>	array(
+					'link_text'		=>	'Social',					// Tab button text
+					'title'			=>	'',									// Can be blank for no header or contains the title shown at the top of the tab page (below the tab selector)
+					'fields'		=>	array(
+						'facebook_url' => array(
+							'type'		=>	'text',							// Possible values are text, textarea, TODO ADD MORE
+							'name'		=>	'Facebook URL',					// Title of option
+							'std'		=>	'',								// Placeholder content of option
+							'desc'		=>	'',	// Description of option
+							'style'		=>	'',								// Inline Styles
+						),
+						'instagram_url' => array(
+							'type'		=>	'text',							// Possible values are text, textarea, TODO ADD MORE
+							'name'		=>	'Instagram URL',				// Title of option
+							'std'		=>	'',								// Placeholder content of option
+							'desc'		=>	'',								// Description of option
+							'style'		=>	'',								// Inline Styles
+						),
+						'linkedin_url' => array(
+							'type'		=>	'text',							// Possible values are text, textarea, TODO ADD MORE
+							'name'		=>	'LinkedIn URL',					// Title of option
+							'std'		=>	'',								// Placeholder content of option
+							'desc'		=>	'',								// Description of option
+							'style'		=>	'',								// Inline Styles
+						),
+						'twitter_handle' => array(
+							'type'		=>	'text',							// Possible values are text, textarea, TODO ADD MORE
+							'name'		=>	'Twitter Handle',				// Title of option
+							'std'		=>	'',								// Placeholder content of option
+							'desc'		=>	'Twitter handle without the @',	// Description of option
+							'style'		=>	'',								// Inline Styles
+						),
+						'google_plus_url' => array(
+							'type'		=>	'text',							// Possible values are text, textarea, TODO ADD MORE
+							'name'		=>	'Google+ URL',					// Title of option
 							'std'		=>	'',								// Placeholder content of option
 							'desc'		=>	'',								// Description of option
 							'style'		=>	'',								// Inline Styles

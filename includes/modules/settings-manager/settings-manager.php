@@ -9,9 +9,14 @@
 //	- updating of the permission slip post. Look into these when possible.
 //************************************************************************************************
 
+$site_settings = array();
+
 function site_setting($setting_id = '') {
 	if (!empty($setting_id)) {
-		$site_settings = get_option('look-agency-settings');
+		global $site_settings;
+		if (empty($site_settings)) {
+			$site_settings = get_option('look-agency-settings');	
+		}
 		if (!empty($site_settings[$setting_id])) {
 			return $site_settings[$setting_id];
 		} 
@@ -20,7 +25,7 @@ function site_setting($setting_id = '') {
 	return false;
 }
 
-
+// TODO: Remove, implement potential defaults into site_setting()
 function look_get_site_settings() {
 	// Load the settings from the database
 	$site_settings = get_option('look-agency-settings');
@@ -29,7 +34,21 @@ function look_get_site_settings() {
 	$site_defaults = array();
 	
 	$site_info = array(
-		'ga_property_id'=>	@$site_settings['ga-property-id'],
+		// General
+		'ga_property_id'	=>	@$site_settings['ga-property-id'],
+		
+		// Contact
+		'contact_address'	=>	@$site_settings['contact_address'],
+		'contact_phone'		=>	@$site_settings['contact_phone'],
+		'contact_email'		=>	@$site_settings['contact_email'],
+		
+		// Social
+		'facebook_url'		=>	@$site_settings['facebook_url'],
+		'instagram_url'		=>	@$site_settings['instagram_url'],
+		'linkedin_url'		=>	@$site_settings['linkedin_url'],
+		'google_plus_url'	=>	@$site_settings['google_plus_url'],
+		'twitter_handle'	=>	@$site_settings['twitter_handle'],
+		
 	);
 	
 	$site_info = array_merge($site_defaults, $site_info);
