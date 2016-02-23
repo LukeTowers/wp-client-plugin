@@ -65,7 +65,7 @@ function build_update_checkers() {
 	$update_checkers = array();
 	
 	foreach ($components as $slug => $component) {
-		switch ($component['type']) {
+		switch (@$component['type']) {
 			case "plugin":
 				$update_checkers[$slug] = PucFactory::buildUpdateChecker(
 				    $component['metadata_url'],
