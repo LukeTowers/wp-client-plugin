@@ -28,8 +28,9 @@ function lai_get_excerpt_content_by_id($post_id, $excerpt_length = 35) {
 
 function lai_image_sizing_data($width, $height) {
 	$image_sizing_data = array(
-		1 => array(
-			0.7 => 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAHAQAAAAAZ1+HOAAAAAnRSTlMAAQGU/a4AAAANSURBVHgBY/h/ABMBAIFIDDoArVNCAAAAAElFTkSuQmCC',
+		'1' => array(
+			'0.7' => 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAHAQAAAAAZ1+HOAAAAAnRSTlMAAQGU/a4AAAANSURBVHgBY/h/ABMBAIFIDDoArVNCAAAAAElFTkSuQmCC',
+			'0.48' => 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAwAQAAAADPhuIYAAAAAnRSTlMAAHaTzTgAAAAOSURBVHgBYxjEYBSMAgACoAABE794HwAAAABJRU5ErkJggg==',
 		)
 	);
 	
