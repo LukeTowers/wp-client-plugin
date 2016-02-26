@@ -8,7 +8,7 @@ function clean_wordpress() {
 	disable_emojis();
 	remove_wp_head_traces();
 }
-add_action('init', 'clean_wordpress');
+add_action('init', 'clean_wordpress', 100);
 
 
 // Disable all traces of WP emojis

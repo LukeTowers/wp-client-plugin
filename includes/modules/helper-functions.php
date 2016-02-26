@@ -38,6 +38,16 @@ function lai_image_sizing_data($width, $height) {
 }
 
 
+function lai_get_share_link_bases() {
+	return array(
+		'facebook'    =>  'http://www.facebook.com/sharer.php?u=',
+		'twitter'     =>  'http://twitter.com/share?url=',
+		'linkedin'    =>  'http://www.linkedin.com/shareArticle?mini=true&url=',
+		'google-plus' =>  'https://plus.google.com/share?url=',
+	);
+}
+
+
 //************************************************************************************************
 // Section: 		Mobile Detection Class
 // Description:		Third party class for detecting mobile devices
