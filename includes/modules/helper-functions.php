@@ -26,6 +26,33 @@ function lai_get_excerpt_content_by_id($post_id, $excerpt_length = 35) {
 }
 
 
+function lai_get_attachment_id_from_url($attachment_url) {
+	if (empty($attachment_url)) {
+		return;
+	}
+
+	global $wpdb;
+	$attachment_id = false;
+
+	// Get the upload directory paths
+	$upload_dir_paths = wp_upload_dir();
+
+	// Make sure the upload path base directory exists in the attachment URL, to verify that we're working with a media library image
+	if (strpos($attachment_url, $upload_dir_paths['baseurl']) !== false) {
+		// If this is the URL of an auto-generated thumbnail, get the URL of the original image
+		$attachment_url = preg_replace( '/-\d+x\d+(?=\.(jpg|jpeg|png|gif)$)/i', '', $attachment_url );
+
+		// Remove the upload path base directory from the attachment URL
+		$attachment_url = str_replace( $upload_dir_paths['baseurl'] . '/', '', $attachment_url );
+
+		// Finally, run a custom database query to get the attachment ID from the modified attachment URL
+		$attachment_id = $wpdb->get_var($wpdb->prepare("SELECT wposts.ID FROM $wpdb->posts wposts, $wpdb->postmeta wpostmeta WHERE wposts.ID = wpostmeta.post_id AND wpostmeta.meta_key = '_wp_attached_file' AND wpostmeta.meta_value = '%s' AND wposts.post_type = 'attachment'", $attachment_url));
+	}
+
+	return $attachment_id;
+}
+
+
 function lai_image_sizing_data($width, $height) {
 	$image_sizing_data = array(
 		'1' => array(

@@ -125,6 +125,47 @@ function get_base_site_settings_pages() {
 						),
 					),
 				),
+				'publisher'	=>	array(
+					'link_text'		=>	'Publisher (Organization)',			// Tab button text
+					'title'			=>	'',									// Can be blank for no header or contains the title shown at the top of the tab page (below the tab selector)
+					'fields'		=>	array(
+						'publisher_name' => array(
+							'type'		=>	'text',							// Possible values are text, textarea, TODO ADD MORE
+							'name'		=>	'Name',						// Title of option
+							'std'		=>	'',								// Placeholder content of option
+							'desc'		=>	'',								// Description of option
+							'style'		=>	'',								// Inline Styles
+						),
+						'publisher_legal_name' => array(
+							'type'		=>	'text',							// Possible values are text, textarea, TODO ADD MORE
+							'name'		=>	'Legal Name',						// Title of option
+							'std'		=>	'',								// Placeholder content of option
+							'desc'		=>	'',								// Description of option
+							'style'		=>	'',								// Inline Styles
+						),
+						'publisher_contact_phone' => array(
+							'type'		=>	'text',							// Possible values are text, textarea, TODO ADD MORE
+							'name'		=>	'Contact Phone',				// Title of option
+							'std'		=>	'',								// Placeholder content of option
+							'desc'		=>	'',								// Description of option
+							'style'		=>	'',								// Inline Styles
+						),
+						'publisher_contact_email' => array(
+							'type'		=>	'text',							// Possible values are text, textarea, TODO ADD MORE
+							'name'		=>	'Contact Email',				// Title of option
+							'std'		=>	'',								// Placeholder content of option
+							'desc'		=>	'',								// Description of option
+							'style'		=>	'',								// Inline Styles
+						),
+						'publisher_logo' => array(
+							'type'		=>	'image',						// Possible values are text, textarea, TODO ADD MORE
+							'name'		=>	'Logo',							// Title of option
+							'std'		=>	'',								// Placeholder content of option
+							'desc'		=>	'',								// Description of option
+							'style'		=>	'width: auto !important; height: auto !important;',								// Inline Styles
+						),
+					),
+				),
 			),
 		),
 	);

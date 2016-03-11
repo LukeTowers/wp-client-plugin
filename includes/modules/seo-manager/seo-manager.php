@@ -90,3 +90,12 @@ function lai_display_seo_metatags($post_id = 0) {
 //************************************************************************************************
 
 require_once(LAI_PLUGIN_PATH . 'includes/modules/seo-manager/metaboxes.php');
+
+
+
+//************************************************************************************************
+// Section: 		SEO SCHEMA.ORG Structured Data
+// Description:		Module for managing the structured data output
+//************************************************************************************************
+
+require_once(LAI_PLUGIN_PATH . 'includes/modules/seo-manager/schema-data.php');
