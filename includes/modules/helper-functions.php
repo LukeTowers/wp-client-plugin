@@ -30,6 +30,7 @@ function lai_image_sizing_data($width, $height) {
 	$image_sizing_data = array(
 		'1' => array(
 			'0.7' => 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAHAQAAAAAZ1+HOAAAAAnRSTlMAAQGU/a4AAAANSURBVHgBY/h/ABMBAIFIDDoArVNCAAAAAElFTkSuQmCC',
+			'0.64' => 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABAAQAAAADEpO/ZAAAAAnRSTlMAAHaTzTgAAAAQSURBVHgBYxgwMApGwSgAAAOAAAFJNyFvAAAAAElFTkSuQmCC',
 			'0.48' => 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAwAQAAAADPhuIYAAAAAnRSTlMAAHaTzTgAAAAOSURBVHgBYxjEYBSMAgACoAABE794HwAAAABJRU5ErkJggg==',
 		)
 	);

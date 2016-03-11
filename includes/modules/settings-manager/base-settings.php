@@ -116,6 +116,13 @@ function get_base_site_settings_pages() {
 							'desc'		=>	'',								// Description of option
 							'style'		=>	'',								// Inline Styles
 						),
+						'youtube_url' => array(
+							'type'		=>	'text',							// Possible values are text, textarea, TODO ADD MORE
+							'name'		=>	'YouTube URL',					// Title of option
+							'std'		=>	'',								// Placeholder content of option
+							'desc'		=>	'',								// Description of option
+							'style'		=>	'',								// Inline Styles
+						),
 					),
 				),
 			),
