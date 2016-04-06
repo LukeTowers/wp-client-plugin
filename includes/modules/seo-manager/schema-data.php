@@ -4,10 +4,10 @@
 // Description:		Module for managing the structured data output
 //************************************************************************************************
 
-function lai_display_publisher_schema() {
+function lai_display_publisher_schema($itemprop = 'publisher') {
 	$logo = site_setting('publisher_logo');
 	
-	echo '<span style="display:none;" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+	echo '<span style="display:none;" itemprop="' . $itemprop . '" itemscope itemtype="http://schema.org/Organization">
 		<span itemprop="name">' . site_setting('publisher_name') . '</span>
 		<span itemprop="legalName">' . site_setting('publisher_name') . '</span>
 		<span itemprop="email">' . site_setting('publisher_contact_email') . '</span>
