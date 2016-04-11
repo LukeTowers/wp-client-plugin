@@ -3,7 +3,7 @@
 Plugin Name: Look Agency Inc.
 Plugin URI: http://www.lookagency.com/
 Description: Essential Client site plugin for sites built / managed by Look Agency
-Version: 1.0.0
+Version: 1.0.1
 Author: Look Agency
 Author URI: http://www.lookagency.com/
 Plugin Prefix: LAI
