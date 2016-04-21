@@ -60,25 +60,25 @@ function lai_display_seo_metatags($post_id = 0) {
 	
 	// Display the meta tags ?>
 	<!-- General Meta -->
-	<meta name="description" content="<?php echo @$seo_options['meta_description']; ?>">
-	<meta name="keywords" content="<?php echo @$seo_options['meta_keywords']; ?>">
+	<meta name="description" content="<?php echo @$seo_options['meta_description']; ?>" />
+	<meta name="keywords" content="<?php echo @$seo_options['meta_keywords']; ?>" />
 	
 	<!-- OpenGraph Meta & Twitter Card Meta -->
-	<meta name="og:url" content="<?php echo $permalink; ?>">
-	<meta name="og:title" content="<?php echo $social_title; ?>">
-	<meta name="og:type" content="<?php echo $content_type; ?>">
-	<meta name="og:description" content="<?php echo @$seo_options['meta_description']; ?>">
-	<meta name="og:site_name" content="<?php echo bloginfo('name'); ?>">
+	<meta name="og:url" content="<?php echo $permalink; ?>" />
+	<meta name="og:title" content="<?php echo $social_title; ?>" />
+	<meta name="og:type" content="<?php echo $content_type; ?>" />
+	<meta name="og:description" content="<?php echo @$seo_options['meta_description']; ?>" />
+	<meta name="og:site_name" content="<?php echo bloginfo('name'); ?>" />
 	<?php if ($has_image) { ?>
-		<meta name="og:image" content="<?php echo $image_url; ?>">
-		<meta name="twitter:card" content="summary_large_image">
-		<meta name="twitter:image" content="<?php echo $image_url; ?>">
+		<meta name="og:image" content="<?php echo $image_url; ?>" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:image" content="<?php echo $image_url; ?>" />
 	<?php } else { ?>
-		<meta name="twitter:card" content="summary">
+		<meta name="twitter:card" content="summary" />
 	<?php } ?>
-	<meta name="twitter:site" content="@<?php echo site_setting('twitter_handle'); ?>">
-	<meta name="twitter:title" content="<?php echo $social_title; ?>">
-	<meta name="twitter:description" content="<?php echo @$seo_options['meta_description']; ?>">
+	<meta name="twitter:site" content="@<?php echo site_setting('twitter_handle'); ?>" />
+	<meta name="twitter:title" content="<?php echo $social_title; ?>" />
+	<meta name="twitter:description" content="<?php echo @$seo_options['meta_description']; ?>" />
 	<?php
 }
 

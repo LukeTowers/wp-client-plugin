@@ -68,7 +68,6 @@ function update_seo_options($post_id) {
 	
 	// Process the seo options
 	$seo_options['meta_description'] = htmlspecialchars(@$_POST['meta_description']) ?: htmlspecialchars(lai_get_excerpt_content_by_id($post_id, 20));
-	$seo_options['meta_keywords']    = htmlspecialchars(@$_POST['meta_keywords']);
 	$seo_options['social_title']     = htmlspecialchars(@$_POST['social_title']) ?: htmlspecialchars($post->post_title);
 	
 	// Update the header options
@@ -104,10 +103,6 @@ function render_seo_options_metabox($post) {
 	<div class="row">
 		<label for="meta_description">Description:</label>
 		<textarea id="meta_description" name="meta_description"><?php echo @$seo_options['meta_description']; ?></textarea>
-	</div>
-	<div class="row">
-		<label for="meta_keywords">Keywords:</label>
-		<input name="meta_keywords" id="meta_keywords" value="<?php echo @$seo_options['meta_keywords']; ?>" type="text" placeholder="Enter keywords separated by commas">
 	</div>
 	<div class="row">
 		<label for="social_title">Social Title:</label>
