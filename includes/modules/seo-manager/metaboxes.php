@@ -4,24 +4,10 @@
 // Description:		Module for managing the SEO Manager related metaboxes
 //************************************************************************************************
 
-// Detect which post types support this metabox
-// Providing __return_support as the argument returns the supported post types
-add_filter('current_theme_supports-seo-metabox', 'current_theme_supports_seo_metabox', 10, 3);
-function current_theme_supports_seo_metabox($wp_result, $args, $theme_supported_post_types) {
-	if ($args[0] === '__return_support') {
-		return $theme_supported_post_types;
-	} elseif (in_array($args, $theme_supported_post_types)) {
-		return true;
-	} else {
-		return false;
-	}
-}
-
-
 // Register the metaboxes
 function add_seo_metaboxes($posttype, $post) {
 	// Get the supported post types
-	$supported_post_types = current_theme_supports('seo-metabox', '__return_support');
+	$supported_post_types = current_theme_supports('seo-metabox', '__return_args');
 	
 	if (!empty($supported_post_types) && is_array($supported_post_types)) {
 		// General SEO

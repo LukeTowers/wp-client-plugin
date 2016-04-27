@@ -63,6 +63,15 @@ require_once(LAI_PLUGIN_PATH . 'includes/modules/seo-manager/seo-manager.php');
 
 
 //************************************************************************************************
+// Section: 		Theme Helper Module
+// Description:		Module that manages the theme helper components of this plugin
+//************************************************************************************************
+
+require_once(LAI_PLUGIN_PATH . 'includes/modules/theme-helper/theme-helper.php');
+
+
+
+//************************************************************************************************
 // Section: 		Helper Functions Module
 // Description:		Module that manages the helper functions for this plugin
 //************************************************************************************************

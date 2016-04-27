@@ -48,6 +48,13 @@ function get_base_site_settings_pages() {
 							'desc'		=>	'',								// Description of option
 							'style'		=>	'',								// Inline Styles
 						),
+						'typekit-id' => array(
+							'type'		=>	'text',							// Possible values are text, textarea, TODO ADD MORE
+							'name'		=>	'Typekit ID',					// Title of option
+							'std'		=>	'',								// Placeholder content of option
+							'desc'		=>	'',								// Description of option
+							'style'		=>	'',								// Inline Styles
+						),
 					),
 				),
 				'contact'	=>	array(
