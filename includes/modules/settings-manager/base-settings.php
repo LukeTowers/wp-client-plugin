@@ -55,6 +55,13 @@ function get_base_site_settings_pages() {
 							'desc'		=>	'',								// Description of option
 							'style'		=>	'',								// Inline Styles
 						),
+						'globalsign-domain-verification' => array(
+							'type'		=>	'text',							// Possible values are text, textarea, TODO ADD MORE
+							'name'		=>	'GlobalSign Domain Verification Key', // Title of option
+							'std'		=>	'',								// Placeholder content of option
+							'desc'		=>	'',								// Description of option
+							'style'		=>	'',								// Inline Styles
+						),
 					),
 				),
 				'contact'	=>	array(

@@ -110,4 +110,13 @@ function lai_check_custom_theme_support() {
 			}
 		});
 	}
+	
+	
+	
+	// Just output the GlobalSign Metatag if necessary, no need to check for support
+	if (!empty(site_setting('globalsign-domain-verification'))) {
+		add_action('wp_head', function() {
+			echo '<meta name="globalsign-domain-verification" content="' . site_setting('globalsign-domain-verification') . '" />';
+		});
+	}
 }
