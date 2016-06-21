@@ -55,6 +55,20 @@ function get_base_site_settings_pages() {
 							'desc'		=>	'',								// Description of option
 							'style'		=>	'',								// Inline Styles
 						),
+						'fb-pixel-id' => array(
+							'type'		=>	'text',							// Possible values are text, textarea, TODO ADD MORE
+							'name'		=>	'Facebook Pixel ID',			// Title of option
+							'std'		=>	'',								// Placeholder content of option
+							'desc'		=>	'',								// Description of option
+							'style'		=>	'',								// Inline Styles
+						),
+						'fb-page-id' => array(
+							'type'		=>	'text',							// Possible values are text, textarea, TODO ADD MORE
+							'name'		=>	'Facebook Page ID',				// Title of option
+							'std'		=>	'',								// Placeholder content of option
+							'desc'		=>	'fb:pages meta tag',			// Description of option
+							'style'		=>	'',								// Inline Styles
+						),
 						'globalsign-domain-verification' => array(
 							'type'		=>	'text',							// Possible values are text, textarea, TODO ADD MORE
 							'name'		=>	'GlobalSign Domain Verification Key', // Title of option
