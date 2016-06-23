@@ -7,6 +7,7 @@
 $theme_features = array(
 	'favicons',
 	'seo-metabox',
+	'managed-css',
 );
 
 foreach ($theme_features as $theme_feature) {
@@ -45,6 +46,7 @@ function lai_check_custom_theme_support() {
 	$favicon_tags_path = @$theme_support_args[0];
 	if (!empty($favicon_tags_path) && file_exists($favicon_tags_path)) {
 		$meta_echo_function = function() use ($favicon_tags_path) {
+			echo '<!-- Site Favicons -->';
 			echo file_get_contents($favicon_tags_path);
 		};
 		
@@ -73,8 +75,7 @@ function lai_check_custom_theme_support() {
 					
 					ga('create', '<?php echo site_setting('ga-property-id'); ?>', 'auto');
 					ga('send', 'pageview');
-				</script>
-				<!-- End Google Analytics --><?php
+				</script><?php
 			}
 		});
 	}
@@ -153,4 +154,90 @@ function lai_check_custom_theme_support() {
 			echo '<meta name="globalsign-domain-verification" content="' . site_setting('globalsign-domain-verification') . '" />';
 		});
 	}
+	
+	
+	
+	/* ---------------------------------------------------
+	*  Negative Theme Support Functions
+	----------------------------------------------------*/
+	// Disables WP Embeds
+	if (current_theme_supports('disable-wp-embeds')) {
+		add_action('init', function() {
+			// Remove the REST API endpoint.
+			remove_action('rest_api_init', 'wp_oembed_register_route');
+			
+			// Turn off oEmbed auto discovery.
+			// Don't filter oEmbed results.
+			remove_filter('oembed_dataparse', 'wp_filter_oembed_result', 10);
+			
+			// Remove oEmbed discovery links.
+			remove_action('wp_head', 'wp_oembed_add_discovery_links');
+			
+			// Remove oEmbed-specific JavaScript from the front-end and back-end.
+			remove_action('wp_head', 'wp_oembed_add_host_js');
+		}, PHP_INT_MAX - 1);
+	}
+	
+
 }
+
+add_action('after_setup_theme', function() {
+	// Remove jQuery migrate from the frontend
+	if (current_theme_supports('disable-jquery-migrate')) {
+		add_filter('wp_default_scripts', function (&$scripts){
+			if (!is_admin()) {
+				$scripts->remove('jquery');
+				$scripts->add('jquery', false, array('jquery-core'), '1.12.4', true);
+			}
+		});
+	}
+	
+	
+	
+	// Manages theme css file loading if requested
+	// Params:
+	// (string) $template_url, (array) $frontend_styles, (array) $backend_styles
+	$theme_support_args = current_theme_supports('managed-css', '__return_args');
+	if (!empty($theme_support_args)) {
+		$template_url    = @$theme_support_args[0];
+		$frontend_styles = @$theme_support_args[1] ?: array();
+		$backend_styles  = @$theme_support_args[2] ?: array();
+		
+		if (!empty($template_url)) {
+			// Manage frontend styles
+			add_action('wp_enqueue_scripts', function() use ($template_url, $frontend_styles) {
+				$stylesheets = apply_filters('template_frontend_styles', $frontend_styles);
+				
+				// Auto references includes/css/style.min.css on PROD (WP_DEBUG = false)
+				if (WP_DEBUG) {
+					wp_enqueue_style('style', $template_url . 'style.css');
+				} else {
+					$i = 0;
+					foreach ($stylesheets as $stylesheet) {
+						$stylesheets[$i] = $stylesheet . '.min';
+						$i++;
+					}
+					
+					$stylesheets[] = 'style.min';
+				}
+				
+				// Enqueue additional styles
+				if (!empty($stylesheets)) {
+					foreach ($stylesheets as $stylesheet) {
+						wp_enqueue_style($stylesheet, $template_url . "includes/css/{$stylesheet}.css");
+					}
+				}
+			});
+			
+			// Manage backend styles
+			add_action('admin_init', function () use ($template_url, $backend_styles) {
+				$stylesheets = apply_filters('template_admin_styles', $backend_styles);
+				if (!empty($stylesheets)) {
+					foreach ($stylesheets as $stylesheet) {
+						wp_enqueue_style($stylesheet, $template_url . "includes/css/{$stylesheet}.css");
+					}
+				}
+			});
+		}
+	}
+});
