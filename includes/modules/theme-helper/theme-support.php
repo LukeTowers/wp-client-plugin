@@ -194,6 +194,25 @@ add_action('after_setup_theme', function() {
 	
 	
 	
+	// Disable site search
+	if (current_theme_supports('disable-search')) {
+		// Redirect searches to the 404 page		
+		add_action('parse_query', function ($query) {
+			if (is_search()) {
+				$query->is_404 = true;
+			}
+		});
+		
+		// Remove the search form
+		add_filter('get_search_form', '__return_null');
+		
+		// Remove the admin bar menu search node
+		add_filter('admin_bar_menu', function ($wp_toolbar) {
+			$wp_toolbar->remove_node('search');
+		});
+	}
+	
+	
 	// Manages theme css file loading if requested
 	// Params:
 	// (string) $template_url, (array) $frontend_styles, (array) $backend_styles
