@@ -9,7 +9,7 @@
 function look_login_logo() { ?>
     <style type="text/css">
         .login #login h1 a {
-            background-image: url('<?php echo LAI_PLUGIN_URL . 'includes/images/look-logo.png'; ?>') !important;
+            background-image: url('<?php echo LAI_PLUGIN_URL . 'includes/images/logo.png'; ?>') !important;
             background-size: contain !important;
             width: 175px !important;
             height: 66px !important;
@@ -28,13 +28,13 @@ add_action('login_enqueue_scripts', 'look_login_logo');
 
 // Replace default login page logo link to link to Look. ?replace with link to the homepage?
 function look_change_wplogin_url() {
-	return 'http://www.lookagency.com/';
+	return 'https://luketowers.ca/';
 }
 add_filter('login_headerurl', 'look_change_wplogin_url');
 
 
 // Replace default login page logo title text for platform branding
-function look_change_wplogin_title() {	
-	return "Powered by Look Agency";
+function look_change_wplogin_title() {
+	return "Powered by Luke Towers Consulting";
 }
 add_filter('login_headertitle', 'look_change_wplogin_title');

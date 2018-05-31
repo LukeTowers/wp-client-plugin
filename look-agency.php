@@ -3,15 +3,15 @@
 Plugin Name: Look Agency Inc.
 Plugin URI: http://www.lookagency.com/
 Description: Essential Client site plugin for sites built / managed by Look Agency
-Version: 1.0.6
-Author: Look Agency
-Author URI: http://www.lookagency.com/
+Version: 1.0.7
+Author: Luke Towers
+Author URI: https://luketowers.ca
 Plugin Prefix: LAI
 */
 
 //************************************************************************************************
 // Section: 		Plugin Setup
-// Description:		
+// Description:
 //************************************************************************************************
 
 // Setup plugin path
@@ -22,17 +22,6 @@ define('LAI_PLUGIN_URL', plugin_dir_url(__FILE__));
 
 // Setup main plugin file path
 define('LAI_PLUGIN_FILE', __FILE__);
-
-
-
-//************************************************************************************************
-// Section: 		Update Manager
-// Description:		Module that handles the updating and upgrading of the plugin
-//************************************************************************************************
-
-require_once(LAI_PLUGIN_PATH . 'includes/modules/update-manager/update-manager.php');
-
-
 
 
 //************************************************************************************************
