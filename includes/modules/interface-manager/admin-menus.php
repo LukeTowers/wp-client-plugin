@@ -5,7 +5,10 @@
 //************************************************************************************************
 
 function look_remove_admin_menus() {
-	remove_menu_page('tools.php');			// Remove the tools menu page
+	if (!site_setting('enable-tools-menu')) {
+		remove_menu_page('tools.php'); // Remove the tools menu page
+	}
+	
 	if (!current_theme_supports('post-comments')) { remove_menu_page('edit-comments.php'); }	// Remove the comments menu page
 	if (!current_theme_supports('post-tags')) { remove_submenu_page('edit.php', 'edit-tags.php?taxonomy=post_tag'); } // Remove the post tags page
 		

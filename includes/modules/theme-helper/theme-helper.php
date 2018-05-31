@@ -17,15 +17,15 @@ require_once(LAI_PLUGIN_PATH . 'includes/modules/theme-helper/theme-support.php'
 
 function lai_is_front_page_in_admin($post = null) {
 	$current_post = lai_get_current_post_id($post);
-		
+
 	if (!empty($current_post)) {
 		$frontpage_post = (int) get_option('page_on_front');
-						
+
 		if ($current_post === $frontpage_post) {
 			return true;
 		}
 	}
-	
+
 	return false;
 }
 
@@ -33,10 +33,10 @@ function lai_is_front_page_in_admin($post = null) {
 
 function lai_current_page_template($post = null) {
 	$current_post = get_current_post_id($post);
-	
+
 	if (!empty($current_post)) {
 		$page_template = get_post_meta($current_post, '_wp_page_template', true);
-		
+
 		if (!empty($page_template)) {
 			return $page_template;
 		} else {
@@ -46,14 +46,14 @@ function lai_current_page_template($post = null) {
 }
 
 function lai_get_current_post_id($post = null) {
-	if (!empty(@$post->ID)) {
+	if (!empty($post) && !empty($post->ID)) {
 		$current_post = $post->ID;
-	} elseif (!empty(filter_var(@$post, FILTER_VALIDATE_INT))) {
-		$current_post = filter_var(@$post, FILTER_VALIDATE_INT);
+	} elseif (!empty($post) && filter_var($post, FILTER_VALIDATE_INT)) {
+		$current_post = filter_var($post, FILTER_VALIDATE_INT);
 	} else {
 		$current_post = filter_var(@$_GET['post'], FILTER_VALIDATE_INT) ?: filter_var(@$_POST['post_ID'], FILTER_VALIDATE_INT);
 	}
-	
+
 	if (!empty($current_post)) {
 		return (int) $current_post;
 	} else {
@@ -64,21 +64,21 @@ function lai_get_current_post_id($post = null) {
 function lai_get_excerpt_content_by_id($post_id, $excerpt_length = 35) {
 	// Get the the post by it's ID
 	$the_post = get_post($post_id);
-	
+
 	// Load the content
 	$the_excerpt = $the_post->post_content;
-	
+
 	// Strip tags and shortcodes
 	$the_excerpt = strip_tags(strip_shortcodes($the_excerpt));
-	
+
 	$words = explode(' ', $the_excerpt, $excerpt_length + 1);
-	
+
 	if(count($words) > $excerpt_length) {
 		array_pop($words);
 		array_push($words, '…');
 		$the_excerpt = implode(' ', $words);
 	}
-		
+
 	return $the_excerpt;
 }
 
@@ -130,11 +130,12 @@ function lai_image_sizing_data($width, $height) {
 			'1' => 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQAAAAA3bvkkAAAAAnRSTlMAAQGU/a4AAAAKSURBVHgBY2gAAACCAIFMF9ffAAAAAElFTkSuQmCC',
 			'0.7' => 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAHAQAAAAAZ1+HOAAAAAnRSTlMAAQGU/a4AAAANSURBVHgBY/h/ABMBAIFIDDoArVNCAAAAAElFTkSuQmCC',
 			'0.64' => 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABAAQAAAADEpO/ZAAAAAnRSTlMAAHaTzTgAAAAQSURBVHgBYxgwMApGwSgAAAOAAAFJNyFvAAAAAElFTkSuQmCC',
+			'0.6'  => 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAGAQAAAADSizJrAAAAAnRSTlMAAQGU/a4AAAANSURBVHgBY/h/AA0BAF8ZCnvLOOh8AAAAAElFTkSuQmCC',
 			'0.5'  => 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAFAQAAAABUH0DFAAAAAnRSTlMAAQGU/a4AAAANSURBVHgBY/h/ABkBAEInCLzjGSLoAAAAAElFTkSuQmCC',
 			'0.48' => 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAwAQAAAADPhuIYAAAAAnRSTlMAAHaTzTgAAAAOSURBVHgBYxjEYBSMAgACoAABE794HwAAAABJRU5ErkJggg==',
 		)
 	);
-	
+
 	return @$image_sizing_data[$width][$height];
 }
 
@@ -159,12 +160,12 @@ require_once(LAI_PLUGIN_PATH . 'includes/modules/libraries/mobile-detection.php'
 
 function lai_mobile_visitor() {
 	$detect = new Mobile_Detect();
-	
+
 	if ($detect->isMobile()) { return true; } else { return false; }
 }
 
 function lai_tablet_visitor() {
 	$detect = new Mobile_Detect();
-	
+
 	if ($detect->isTablet()) { return true; } else { return false; }
 }

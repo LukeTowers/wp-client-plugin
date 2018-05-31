@@ -9,17 +9,17 @@
 function look_login_logo() { ?>
     <style type="text/css">
         .login #login h1 a {
-            background-image: url('<?php echo LAI_PLUGIN_URL . 'includes/images/look-logo.png'; ?>');
-            background-size: contain;
+            background-image: url('<?php echo LAI_PLUGIN_URL . 'includes/images/look-logo.png'; ?>') !important;
+            background-size: contain !important;
             width: 175px !important;
-            height: 66px;
+            height: 66px !important;
         }
         .login #nav a {
-	        float: left;
-	        margin-left: 5px;
+	        float: left !important;
+	        margin-left: 5px !important;
         }
         #backtoblog {
-	        clear: both;
+	        clear: both !important;
         }
     </style>
 <?php }

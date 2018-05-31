@@ -27,6 +27,13 @@ function get_base_site_settings_pages() {
 					'link_text'		=>	'General',					// Tab button text
 					'title'			=>	'',									// Can be blank for no header or contains the title shown at the top of the tab page (below the tab selector)
 					'fields'		=>	array(
+						'enable-tools-menu' => array(
+							'type'		=>	'checkbox',							// Possible values are text, textarea, TODO ADD MORE
+							'name'		=>	'Enable Tools Menu',		// Title of option
+							'std'		=>	'',								// Placeholder content of option
+							'desc'		=>	'',								// Description of option
+							'style'		=>	'',								// Inline Styles
+						),
 						'gtag-manager-id' => array(
 							'type'		=>	'text',							// Possible values are text, textarea, TODO ADD MORE
 							'name'		=>	'Google Tag Manager ID',		// Title of option

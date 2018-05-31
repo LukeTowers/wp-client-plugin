@@ -65,8 +65,8 @@ function lai_check_custom_theme_support() {
 	// Output of Google Analytics
 	if (current_theme_supports('google-analytics')) {
 		add_action('wp_head', function() {
-			if (!empty(site_setting('ga-property-id'))) {
-				?><!-- Google Analytics -->
+			if (site_setting('ga-property-id') != '') {
+				/*?><!-- Google Analytics -->
 				<script>
 					(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 					(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -75,7 +75,16 @@ function lai_check_custom_theme_support() {
 					
 					ga('create', '<?php echo site_setting('ga-property-id'); ?>', 'auto');
 					ga('send', 'pageview');
-				</script><?php
+				</script><?php*/
+				?><!-- Global site tag (gtag.js) - Google Analytics -->
+                <script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo site_setting('ga-property-id'); ?>"></script>
+                <script>
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+
+                    gtag('config', '<?php echo site_setting('ga-property-id'); ?>');
+                </script><?php
 			}
 		});
 	}
@@ -83,12 +92,9 @@ function lai_check_custom_theme_support() {
 	
 	// Output of Google Tag Manager
 	if (current_theme_supports('google-tag-manager')) {
-		add_action('wp_footer', function() {
-			if (!empty(site_setting('gtag-manager-id'))) { 
+		add_action('wp_head', function () {
+			if (!site_setting('gtag-manager-id') != "" && site_setting('ga-property-id') != "") {
 				?><!-- Google Tag Manager -->
-				<noscript>
-					<iframe src="//www.googletagmanager.com/ns.html?id=<?php echo site_setting('gtag-manager-id'); ?>" height="0" width="0" style="display:none;visibility:hidden"></iframe>
-				</noscript>
 				<script>
 					(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 					new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -99,13 +105,23 @@ function lai_check_custom_theme_support() {
 				<!-- End Google Tag Manager --><?php
 			}
 		});
+		
+		add_action('wp_footer', function() {
+			if (site_setting('gtag-manager-id') != "" && site_setting('ga-property-id') != "") {
+				?><!-- Google Tag Manager -->
+				<noscript>
+					<iframe src="//www.googletagmanager.com/ns.html?id=<?php echo site_setting('gtag-manager-id'); ?>" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+				</noscript>
+				<!-- End Google Tag Manager --><?php
+			}
+		});
 	}
 	
 	
 	// Output of Adobe Typekit
 	if (current_theme_supports('typekit')) {
 		add_action('wp_footer', function() {
-			if (!empty(site_setting('typekit-id'))) {
+			if (site_setting('typekit-id') != "") {
 				echo '<script src="https://use.typekit.net/' . site_setting('typekit-id') . '.js"></script>';
 				echo '<script>try{Typekit.load({ async: true });}catch(e){}</script>';
 			}
@@ -116,7 +132,7 @@ function lai_check_custom_theme_support() {
 	// Output of Facebook Tracking Pixel
 	if (current_theme_supports('fb-pixel')) {
 		add_action('wp_head', function() {
-			if (!empty(site_setting('fb-pixel-id'))) {
+			if (site_setting('fb-pixel-id') != "") {
 				?><!-- Facebook Pixel -->
 				<script>
 					!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -139,7 +155,7 @@ function lai_check_custom_theme_support() {
 	// Output of Facebook Page ID Meta Tag
 	if (current_theme_supports('fb-page-id')) {
 		add_action('wp_head', function() {
-			if (!empty(site_setting('fb-page-id'))) {
+			if (site_setting('fb-page-id') != "") {
 				?><!-- Facebook Page ID -->
 				<meta property="fb:pages" content="<?php echo site_setting('fb-page-id'); ?>" />
 				<?php
@@ -149,7 +165,7 @@ function lai_check_custom_theme_support() {
 	
 	
 	// Just output the GlobalSign Metatag if necessary, no need to check for support
-	if (!empty(site_setting('globalsign-domain-verification'))) {
+	if (site_setting('globalsign-domain-verification') != "") {
 		add_action('wp_head', function() {
 			echo '<meta name="globalsign-domain-verification" content="' . site_setting('globalsign-domain-verification') . '" />';
 		});
@@ -177,8 +193,6 @@ function lai_check_custom_theme_support() {
 			remove_action('wp_head', 'wp_oembed_add_host_js');
 		}, PHP_INT_MAX - 1);
 	}
-	
-
 }
 
 add_action('after_setup_theme', function() {
@@ -195,6 +209,7 @@ add_action('after_setup_theme', function() {
 	
 	
 	// Disable site search
+	// TODO: Doesn't seem to work on SSTC's site for some reason, investigate ideal positioning of hooks
 	if (current_theme_supports('disable-search')) {
 		// Redirect searches to the 404 page		
 		add_action('parse_query', function ($query) {

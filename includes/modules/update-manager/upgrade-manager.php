@@ -48,7 +48,7 @@ add_action('admin_init', 'look_check_component');
 // Run any upgrades that need to be run on this component
 function look_upgrade_component($component, $old_version) {
 	// Verify that the path to the upgrades is set and there are upgrades to perform
-	if (empty($component['upgrade_path']) || empty($component['upgrades'] || empty($old_version))) {
+	if (empty($component['upgrade_path']) || empty($component['upgrades']) || empty($old_version)) {
 		return;
 	}
 	

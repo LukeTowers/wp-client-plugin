@@ -37,7 +37,6 @@ function get_base_metaboxes_to_remove() {
 		'event'	=>	array(
 			'postexcerpt'		=>	'normal',
 			'postcustom'		=>	'normal',
-			'postimagediv'		=>	'side',
 			'commentstatusdiv'	=>	'normal',
 			'commentsdiv'		=>	'normal',
 			'authordiv'			=>	'normal',
@@ -49,9 +48,3 @@ function get_base_metaboxes_to_remove() {
 	
 	return $metaboxes;
 }
-
-
-function remove_featured_image_metabox() {
-	remove_meta_box('postimagediv', 'event', 'side');
-}
-add_action('do_meta_boxes', 'remove_featured_image_metabox');
